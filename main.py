@@ -63,13 +63,13 @@ async def Subscribe(lel, message):
       try:
          user = await app.get_chat_member(update_channel, message.chat.id)
          if user.status == "kicked":
-            await app.send_message(chat_id=message.chat.id,text="Üzgünüm efendim, yasaklandınız. İletişim [Destek Grubu](https://t.me/DarkCloudUnderground).", parse_mode="markdown", disable_web_page_preview=True)
+            await app.send_message(chat_id=message.chat.id,text="Üzgünüm efendim, yasaklandınız. İletişim [Destek Grubu](https://t.me/mutluuolun).", parse_mode="markdown", disable_web_page_preview=True)
             return 1
       except UserNotParticipant:
-         await app.send_message(chat_id=message.chat.id, text="**Lütfen Beni Kullanmak İçin Güncel Kanalıma Katılın!\n ve Kontrol etmek için tıklayın /start**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🤖 Güncelleme Kanalına Katılın 🤖", url=f"https://t.me/DarkCloudUnderground")]]), parse_mode="markdown")
+         await app.send_message(chat_id=message.chat.id, text="**Lütfen Beni Kullanmak İçin Güncel Kanalıma Katılın!\n ve Kontrol etmek için tıklayın /start**", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🤖 Güncelleme Kanalına Katılın 🤖", url=f"https://t.me/iyiolmayolunda")]]), parse_mode="markdown")
          return 1
       except Exception:
-         await app.send_message(chat_id=message.chat.id, text="**Bir şeyler ters gitti. İletişim [Destek Grubu](https://t.me/DarkCloudUnderground).**", parse_mode="markdown", disable_web_page_preview=True)
+         await app.send_message(chat_id=message.chat.id, text="**Bir şeyler ters gitti. İletişim [Destek Grubu](https://t.me/mutluuolun).**", parse_mode="markdown", disable_web_page_preview=True)
          return 1
 
 
@@ -88,7 +88,7 @@ async def start(lel, message):
    user_name = '@' + message.from_user.username if message.from_user.username else None
    await add_user(id, user_name)
    but = InlineKeyboardMarkup([[InlineKeyboardButton("Login ✅", callback_data="Login"), InlineKeyboardButton("Gruba Ekle 💯", callback_data="Adding") ],[InlineKeyboardButton("Telefon Ekle ⚙️", callback_data="Edit"), InlineKeyboardButton("Telefonlar 💕", callback_data="Ish")],[InlineKeyboardButton("Telefon Kaldır ⚙️", callback_data="Remove"), InlineKeyboardButton("Yönetim paneli", callback_data="Admin")]])
-   await message.reply_text(f"**Merhaba** `{message.from_user.first_name}` **!\n\nBen @tweety6r tarafından  üye çekimi için tasarlanmış botum. \nÜcretli veya Ücretsiz üye çekmek için tasarlandım,\nSizler için en iyisi.\n\n💬 Sohbet ve ticari Grubumuz @DarkCloudUnderground**", reply_markup=but)
+   await message.reply_text(f"**Merhaba** `{message.from_user.first_name}` **!\n\nBen @tweety6r tarafından  üye çekimi için tasarlanmış botum. \nÜcretli veya Ücretsiz üye çekmek için tasarlandım,\nSizler için en iyisi.\n\n💬 Sohbet ve ticari Grubumuz @mutluuolun**", reply_markup=but)
 
 
 
@@ -120,10 +120,10 @@ async def phone(lel, message):
          await app.send_message(message.chat.id, """**Geçersiz Biçim 1'den az Yeniden deneyin\n\nİletişim @tweety6r**""")
          return
       if a>100:
-         await app.send_message(message.chat.id, f"**Yalnızca şunları ekleyebilirsiniz: {100-a} Telefon no \n\nSohbet destek ❤️ @DarkCloudUnderground**")
+         await app.send_message(message.chat.id, f"**Yalnızca şunları ekleyebilirsiniz: {100-a} Telefon no \n\nSohbet destek ❤️ @mutluuolun**")
          return
       for i in range (1,n+1):
-         number = await app.ask(chat_id=message.chat.id, text="**Şimdi Telegram Hesabınızın Telefon Numarasını Uluslararası Biçimde Gönderin. \nDahil **Ülke Kodu**. \nÖrnek: **+14154566376 = 14154566376 işaret olmadan +**\n\nDestek 🇹🇷 @DarkCloudUnderground**")
+         number = await app.ask(chat_id=message.chat.id, text="**Şimdi Telegram Hesabınızın Telefon Numarasını Uluslararası Biçimde Gönderin. \nDahil **Ülke Kodu**. \nÖrnek: **+14154566376 = 14154566376 işaret olmadan +**\n\nDestek 🇹🇷 @mutluuolun**")
          phone = number.text
          if "+" in phone:
             await app.send_message(message.chat.id, """**Alan kodu  + dahil değildir.\n\nBilgi için ❤️ @tweety6r**""")
@@ -155,7 +155,7 @@ async def login(lel, message):
    if a==1:
       return 
    '''if message.from_user.id not in PREMIUM:
-      await app.send_message(message.chat.id, f"**Artık Premium Kullanıcı Değilsiniz\nLütfen bir Alt Yazıya Sahip Olun\n200rs ayda\nPm @tweety6r\n\nResmi Grup @DarkCloudUnderground**")
+      await app.send_message(message.chat.id, f"**Artık Premium Kullanıcı Değilsiniz\nLütfen bir Alt Yazıya Sahip Olun\n200rs ayda\nPm @tweety6r\n\nResmi Grup @mutluuolun**")
       return'''
    with open(f"Users/{message.from_user.id}/phone.csv", 'r')as f:
     r=[]
@@ -351,7 +351,7 @@ async def to(lel, message):
                dad+=1
                a+=1
    except Exception as e:
-      await app.send_message(chat_id=message.chat.id, text=f"Hata: {e} n\n\ @DarkCloudUnderground")
+      await app.send_message(chat_id=message.chat.id, text=f"Hata: {e} n\n\ @mutluuolun")
  except Exception as e:
    await app.send_message(message.chat.id, f"**Hata: {e}\n\nBilgi için @tweety6r**")
    return
